@@ -1,5 +1,9 @@
 #!/bin/bash
+<<<<<<< HEAD
 echo 'Hello from MAIN branch'
+=======
+echo 'Hello from CONFLICT branch'
+>>>>>>> conflict
 echo 'Feature 1 implemented'
 echo 'Feature 2 implemented'
 echo 'Feature 3 implemented'
