@@ -1,44 +1,70 @@
-# Домашнее задание к занятию «Git»
-Автор: Андрей Санакин
+# Домашнее задание «Что такое DevOps. CI/CD»
+## Автор: Андрей Санакин
 
-## Задание 1 — Первый коммит
+## Задание 1: Freestyle Project
 
-Создан репозиторий, выполнены команды:
-- `git clone`
-- `git config`
-- `git status`
-- `git diff` / `git diff --staged`
-- `git add`
-- `git commit`
-- `git push`
+Создан проект `go-test-build` в Jenkins.
 
-**Ссылка на коммит:** https://github.com/Kant84/HomeWork/commit/f4dce24078608a74137ba04a1e2d2d80d9aa430a
+Подключен репозиторий: `https://github.com/Kant84/sdvps-materials.git`
 
----
+Выполняются команды:
+- `go test .`
+- `docker build . -t hello-world:v$BUILD_NUMBER`
 
-## Задание 2 — .gitignore
+**Настройки Git:**
+![Настройки Git](https://github.com/Kant84/sdvps-materials/blob/main/screenshots/рисунок_1.png)
 
-Создан файл `.gitignore` с правилами:
-- `*.pyc` — игнорировать скомпилированные Python-файлы
-- `cache/` — игнорировать директорию cache
+**Build Steps (скрипт сборки):**
+![Build Steps](https://github.com/Kant84/sdvps-materials/blob/main/screenshots/рисунок_2.png)
 
-**Ссылка на коммит:** https://github.com/Kant84/HomeWork/commit/a8dc5dbe151055adeae0799083411ba3bdc23b12
+**Результат сборки (Console Output):**
+![Console Output](https://github.com/Kant84/sdvps-materials/blob/main/screenshots/рисунок_3.png)
+
+Статус: **SUCCESS**
 
 ---
 
-## Задание 3 — Работа с ветками
+## Задание 2: Pipeline
 
-Создана ветка `dev`, в ней выполнена работа с файлом `test.sh` (10 коммитов).
-В основной ветке `main` создан файл `main.sh`.
-Ветка `dev` слита в `main` через `git merge`.
+Создан проект `go-test-pipeline` в Jenkins.
 
-**Ссылка на граф коммитов:** https://github.com/Kant84/HomeWork/network
+Declarative pipeline с этапами: Git → Test → Build Binary → Upload to Nexus
+
+**Stage View (все этапы зелёные):**
+![Stage View](https://github.com/Kant84/sdvps-materials/blob/main/screenshots/рисунок_4.png)
+
+**Console Output (Docker build):**
+![Docker Build](https://github.com/Kant84/sdvps-materials/blob/main/screenshots/рисунок_5.png)
+
+Статус: **SUCCESS**
 
 ---
 
-## Задание 4* — Конфликт
+## Задание 3: Nexus + бинарный файл
 
-Создана ветка `conflict`, в ней изменена та же строка в `test.sh`, что и в `main`.
-При мердже возник конфликт, который был решён в пользу ветки `conflict`.
+Установлен Nexus на `http://192.168.101.146:8081`
 
-**Ссылка на граф коммитов:** https://github.com/Kant84/HomeWork/network
+Создан raw-hosted репозиторий `go-binaries`
+
+Pipeline модифицирован:
+- Сборка бинарного файла: `CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o app .`
+- Загрузка в Nexus через `curl`
+
+**Репозиторий Nexus с загруженным файлом:**
+![Nexus Repository](https://github.com/Kant84/sdvps-materials/blob/main/screenshots/рисунок_6.png)
+
+**Console Output — загрузка в Nexus (HTTP 201 Created):**
+![Upload to Nexus](https://github.com/Kant84/sdvps-materials/blob/main/screenshots/рисунок_7.png)
+
+Файл `app-v3` успешно загружен.
+
+---
+
+## Задание 4*: Версионирование
+
+Используется переменная `BUILD_NUMBER`.
+
+Файлы именуются: `app-v1`, `app-v2`, `app-v3`...
+
+**Несколько версий в Nexus:**
+![Версии в Nexus](https://github.com/Kant84/sdvps-materials/blob/main/screenshots/рисунок_8.png)
