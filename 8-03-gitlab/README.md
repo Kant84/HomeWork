@@ -5,7 +5,7 @@
 ---
 
 ## Задание 1: Развёртывание GitLab и регистрация Runner
-
+бдл
 ### Инфраструктура
 - **GitLab Server:** http://46.21.245.114
 - **GitLab Runner:** 192.168.100.28 (Docker executor)
