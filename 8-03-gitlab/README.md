@@ -3,9 +3,17 @@
 ---
 📋 Содержание
 Инфраструктура
+
+
 Задание 1: Развёртывание GitLab и регистрация Runner
+
+
 Задание 2: CI/CD Pipeline
+
+
 Задание 3: Оптимизация CI (дополнительное)
+
+
 Ключевые файлы
 Проблемы и решения
 Доступы
@@ -19,6 +27,10 @@
 Инструменты: Terraform + Ansible + Docker
 ---
 Задание 1: Развёртывание GitLab и регистрация Runner
+
+
+screenshots/pipeline-passed.png
+
 GitLab Server
 URL: http://46.21.245.114
 Развёртывание: Docker-контейнер с GitLab CE
@@ -36,6 +48,8 @@ Executor	`docker`
 > 💡 **Особенность:** Runner размещён во внутренней сети без внешнего IP. Для доступа к интернету используется NAT Gateway. SSH-доступ осуществляется через GitLab Server (ProxyCommand).
 ---
 Задание 2: CI/CD Pipeline
+
+
 Файл `.gitlab-ci.yml`
 ```yaml
 stages:
@@ -110,12 +124,20 @@ test_job:
 Проблема	Решение
 SSH-ключи не работают	Сгенерирован ED25519 ключ (`~/.ssh/id_ed25519`). Стандартный RSA не совместим с Ubuntu 22.04 в Yandex Cloud из-за OpenSSH 8.8+
 Пользователь VM	Используется `ubuntu` (не `yc-user`). Cloud-init в стандартных образах Ubuntu 22.04 создаёт пользователя `ubuntu` и кладёт ключ в `/home/ubuntu/.ssh/authorized_keys`
+
+
 Runner без интернета	Создан NAT Gateway в Yandex Cloud. Без него Runner не мог установить Docker и скачивать образы
 GitLab external_url	Настроен на внешний IP `http://46.21.245.114`. Иначе Runner использовал hostname контейнера и не мог клонировать репозиторий
 SonarQube права	Исправлены права на `/srv/sonarqube/data` (`chown 1000:1000`). Контейнер SonarQube работает от UID 1000, иначе Elasticsearch не создавал директорию конфигурации
+
+
 Ansible inventory для Runner	Добавлен `ProxyCommand` (SSH через GitLab сервер), так как Runner во внутренней сети без внешнего IP
 Чувствительные данные в Git	Файлы `terraform.tfvars` и `key.json` исключены из Git через `.gitignore`
+
+
 ---
+
+
 🔐 Доступы
 Сервис	URL	Логин	Пароль
 GitLab	http://46.21.245.114	`root`	(запросить у автора)
