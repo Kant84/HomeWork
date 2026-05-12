@@ -1,3 +1,4 @@
+<img width="1905" height="1080" alt="Снимок экрана (980)" src="https://github.com/user-attachments/assets/220fe3a7-9161-42c5-9319-c701436c49a2" />
 Домашнее задание «GitLab CI/CD»
 Выполнил: Андрей Санакин
 ---
@@ -120,10 +121,6 @@ test_job:
 `ansible/playbooks/install-all.yml`	Установка Docker, GitLab, Runner, SonarQube
 `.gitlab-ci.yml`	CI/CD pipeline
 ---
-🔧 Проблемы и решения
-Проблема	Решение
-SSH-ключи не работают	Сгенерирован ED25519 ключ (`~/.ssh/id_ed25519`). Стандартный RSA не совместим с Ubuntu 22.04 в Yandex Cloud из-за OpenSSH 8.8+
-Пользователь VM	Используется `ubuntu` (не `yc-user`). Cloud-init в стандартных образах Ubuntu 22.04 создаёт пользователя `ubuntu` и кладёт ключ в `/home/ubuntu/.ssh/authorized_keys`
 
 
 Runner без интернета	Создан NAT Gateway в Yandex Cloud. Без него Runner не мог установить Docker и скачивать образы
