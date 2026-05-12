@@ -1,4 +1,5 @@
-<img width="1905" height="1080" alt="Снимок экрана (980)" src="https://github.com/user-attachments/assets/220fe3a7-9161-42c5-9319-c701436c49a2" />
+
+
 Домашнее задание «GitLab CI/CD»
 Выполнил: Андрей Санакин
 ---
@@ -30,7 +31,7 @@
 Задание 1: Развёртывание GitLab и регистрация Runner
 
 
-screenshots/pipeline-passed.png
+<img width="1905" height="1080" alt="Снимок экрана (980)" src="https://github.com/user-attachments/assets/220fe3a7-9161-42c5-9319-c701436c49a2" />
 
 GitLab Server
 URL: http://46.21.245.114
@@ -49,6 +50,8 @@ Executor	`docker`
 > 💡 **Особенность:** Runner размещён во внутренней сети без внешнего IP. Для доступа к интернету используется NAT Gateway. SSH-доступ осуществляется через GitLab Server (ProxyCommand).
 ---
 Задание 2: CI/CD Pipeline
+<img width="1924" height="1080" alt="Снимок экрана (987)" src="https://github.com/user-attachments/assets/24e7ca1b-4672-4b9c-8792-5d7adf8fe9ec" /><img width="1929" height="1080" alt="Снимок экрана (979)" src="https://github.com/user-attachments/assets/31d82d61-86f6-465e-9615-8d87a6ed4c92" />
+<img width="1929" height="1080" alt="Снимок экрана (979)" src="https://github.com/user-attachments/assets/919ba9ef-15c7-402d-af8c-eecbe9e18e41" />
 
 
 Файл `.gitlab-ci.yml`
