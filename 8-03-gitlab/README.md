@@ -14,6 +14,10 @@
 
 
 Задание 3: Оптимизация CI (дополнительное)
+
+
+
+
 width="1929" height="1080" alt="Снимок экрана (979)" src="https://github.com/user-attachments/assets/31d82d61-86f6-465e-9615-8d87a6ed4c92" />
 
 Ключевые файлы
