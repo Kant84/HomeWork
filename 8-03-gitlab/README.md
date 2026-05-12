@@ -1,3 +1,4 @@
+<img width="1929" height="1080" alt="Снимок экрана (979)" src="https://github.com/user-attachments/assets/8079416d-4514-47aa-8972-5ffbb1a40025" />
 
 
 Домашнее задание «GitLab CI/CD»
