@@ -31,7 +31,11 @@ width="1929" height="1080" alt="Снимок экрана (979)" src="https://gi
 Задание 1: Развёртывание GitLab и регистрация Runner
 
 
+
+
 <img width="1905" height="1080" alt="Снимок экрана (980)" src="https://github.com/user-attachments/assets/220fe3a7-9161-42c5-9319-c701436c49a2" />
+
+
 
 GitLab Server
 URL: http://46.21.245.114
