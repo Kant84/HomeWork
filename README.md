@@ -1,6 +1,6 @@
 # Домашнее задание: Система мониторинга Zabbix
 
-**Выполнил:** Andrei
+**Выполнил:** Андрей Санакин
 
 ---
 
@@ -36,7 +36,7 @@ systemctl enable zabbix-server zabbix-agent apache2
 
 ### Скриншот авторизации в админке
 
-![Dashboard](img/screenshot_dashboard.png)
+![Dashboard](img/screenshot_login.png)
 
 ---
 
