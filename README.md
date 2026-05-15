@@ -37,7 +37,7 @@ img/screenshot_login.png
 Задание 2. Установка Zabbix Agent на два хоста
 Агент 1 (zabbix-agent)
 bash
-Copy
+
 systemctl status zabbix-agent
 grep -E "^Server|^Hostname" /etc/zabbix/zabbix_agentd.conf
 Агент 2 (zabbix-agent2, порт 10052)
@@ -66,7 +66,7 @@ Zabbix server	127.0.0.1:10050	ZBX Available
 Скриншот лога агента
 img/screenshot_agent_log.png
 bash
-Copy
+
 tail -15 /var/log/zabbix/zabbix_agentd.log
 Скриншот Latest Data
 img/screenshot_latest_data.png
